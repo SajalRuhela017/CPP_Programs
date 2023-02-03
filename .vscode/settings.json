@@ -4,6 +4,9 @@
         "xlocale": "cpp",
         "list": "cpp",
         "vector": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "ios": "cpp",
+        "tuple": "cpp",
+        "ostream": "cpp"
     }
 }
