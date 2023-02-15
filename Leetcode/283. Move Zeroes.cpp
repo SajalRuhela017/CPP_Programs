@@ -6,11 +6,14 @@ class Solution {
 public:
     void moveZeroes(vector<int>& nums) 
     {
-        int n = nums.size();
-        vector<int> temp(n , 0);
-        for(int i = 0, j = 0; i < n; i++)
+        int i = 0, j = 0;
+        while(i < nums.size())
+        {
             if(nums[i])
-                temp[j] = nums[i] , j++;
-        nums = temp;
+                nums[j++] = nums[i];
+            i++;
+        }
+        while(j < nums.size())
+            nums[j++] = 0; 
     }
 };
