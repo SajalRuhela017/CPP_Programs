@@ -14,12 +14,9 @@ int main()
     cin >> t;
     while(t--)
     {
-        long long n;
-        cin >> n;
-        vector<int> v(n);
-        for(int i = 0; i < n; i++)
-            cin >> v[i];
-        
+        long long a, b, c, d;
+        cin >> a >> b >> c >> d;
+        cout << a + 2 * min(b , c) + min(a + 1 , abs(c - b) + d) << endl;
     }
     return 0;
 }

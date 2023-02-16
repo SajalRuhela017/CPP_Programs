@@ -1,4 +1,4 @@
-/**             🕉
+/**             ॐ
  *      author : rhsajal_017
 **/
 
@@ -14,12 +14,15 @@ int main()
     cin >> t;
     while(t--)
     {
-        int n;
+        int n, o = 0;
         cin >> n;
         vector<int> v(n);
         for(int i = 0; i < n; i++)
+        {
             cin >> v[i];
-        
+            o += (v[i] == 1);
+        }
+        cout << n - o / 2 << endl;
     }
     return 0;
 }
