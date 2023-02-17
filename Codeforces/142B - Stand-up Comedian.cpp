@@ -16,7 +16,7 @@ int main()
     {
         long long a, b, c, d;
         cin >> a >> b >> c >> d;
-        cout << a + 2 * min(b , c) + min(a + 1 , abs(c - b) + d) << endl;
+        cout << (a == 0 ? 1 : a + min(b , c) * 2 + min(a + 1 , abs(c - b) + d)) << endl;
     }
     return 0;
 }
