@@ -29,15 +29,39 @@ int main()
     cin >> t;
     while(t--)
     {
-        long long n;
+        long long n, i = 0;
         cin >> n;
-        int x = (n + 1) / 2, y = n / 2;
-        while(difference(x , y) > 1)
+        string s = to_string(n);
+        bool flag = false;
+        string x = "", y = "";
+        for(auto c : s)
         {
-            x++;
-            y--;
+            if(c == '0' || c == '2'|| c == '4'|| c == '6'|| c == '8')
+            {
+                int temp = c - '0';
+                temp /= 2;
+                x += (temp + '0');
+                y += (temp + '0');
+            }
+            else
+            {
+                int temp = c - '0';
+                temp /= 2;
+                if(flag)
+                {
+                    x += (temp + '0');
+                    y += (temp + '1');
+                    flag = false;
+                }
+                else
+                {
+                    x += (temp + '1');
+                    y += (temp + '0');
+                    flag = true;
+                }
+            }
         }
-        cout << x << " " << y << endl;
+        cout << stoi(x) << " " << stoi(y) << endl;
     }
     return 0;
 }

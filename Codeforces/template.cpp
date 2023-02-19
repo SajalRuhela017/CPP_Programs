@@ -16,7 +16,7 @@ int main()
     {
         long long n;
         cin >> n;
-        vector<int> v(n);
+        vector<long long> v(n);
         for(int i = 0; i < n; i++)
             cin >> v[i];
         
