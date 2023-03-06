@@ -16,15 +16,16 @@ int main()
     {
         long long n;
         cin >> n;
-        long long size = 2 * n - 2;
-        vector<string> v(size);
-        for(int i = 0; i < size; i++)
-            cin >> v[i];
-        sort(v.begin() , v.end());
-        for(int i = size - 1; i >= 0; i--)
+        vector<string> v;
+        for(int i = 0; i < 2 * n - 2; i++)
         {
-            
+            string s;
+            cin >> s;
+            if(s.size() == n - 1)
+                v.push_back(s);
         }
+        reverse(v[0].begin() , v[0].end());
+        cout << (v[0] == v[1] ? "YES" : "NO") << endl;
     }
     return 0;
 }

@@ -16,20 +16,24 @@ int main()
     {
         long long n;
         cin >> n;
-        vector<long long> v(n);
+        vector<long long> v(n), ans;
         for(int i = 0; i < n; i++)
-        {
             cin >> v[i];
-            if(v[i] == 1)
-                v[i]++;
-        }
-        for(int i = 1; i < n; i++)
+        for(int i = 0; i < n; i++)
         {
-            if(v[i] % v[i - 1] == 0)
-                v[i]++;
+            int s = 1, e = i + 1;
+            while(s <= e)
+            {
+                int m = (s + e) / 2;
+                if(v[i - m + 1] >= m)
+                    s = m + 1;
+                else
+                    e = m - 1;
+            }
+            ans.push_back(e);
         }
         for(int i = 0; i < n; i++)
-            cout<< v[i] << " ";
+            cout << ans[i] << " ";
         cout << "\n";
     }
     return 0;
