@@ -14,12 +14,14 @@ int main()
     cin >> t;
     while(t--)
     {
-        long long n;
-        cin >> n;
-        vector<long long> v(n);
-        for(int i = 0; i < n; i++)
-            cin >> v[i];
-        
+        long long a, b, c, d;
+        cin >> a >> b >> c >> d;
+        if(d < b)
+            cout << "-1\n";
+        else if(a + d - b < c)
+            cout << "-1\n";
+        else    
+            cout << 2 * d + a - 2 * b - c << "\n";
     }
     return 0;
 }
