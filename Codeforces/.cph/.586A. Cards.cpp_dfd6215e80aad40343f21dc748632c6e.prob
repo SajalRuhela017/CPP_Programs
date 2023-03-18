@@ -1,0 +1,1 @@
+{"name":"Local: 586A","url":"d:\\IIIT Una\\others\\C++ Programs\\Codeforces\\586A. Cards.cpp","tests":[{"id":1679140276958,"input":"4\nezor","output":"0"},{"id":1679140298780,"input":"10\nnznooeeoer\n","output":"1 1 0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\IIIT Una\\others\\C++ Programs\\Codeforces\\586A. Cards.cpp","group":"local","local":true}

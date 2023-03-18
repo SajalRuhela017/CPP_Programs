@@ -14,7 +14,7 @@ int main()
     cin >> t;
     while(t--)
     {
-        long long n, count = 1, x = 1, ans = 0;
+        long long n, curr = 1, ans = 0, temp = 1;
         cin >> n;
         vector<long long> v(n);
         map<long long , long long> mp;
@@ -23,15 +23,15 @@ int main()
             cin >> v[i];
             mp[v[i]]++;
         }
-        while(mp[x])
+        while(mp[curr])
         {
-            count = (count % mod) * (mp[x] % mod);
-            ans = (ans % mod) + (count % mod);
-            count %= mod;
+            temp = (temp % mod) * (mp[curr] % mod);
+            ans = (ans %  mod) + (temp % mod);
+            temp %= mod;
             ans %= mod;
-            x++;
+            curr++;
         }
-        cout << ans << "\n";        
+        cout << ans << "\n";
     }
     return 0;
 }
