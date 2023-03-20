@@ -29,18 +29,13 @@ int main()
         vector<vector<long long>> queries(q);
         for(int i = 0; i < q; i++)
         {
-            long long l, r, k;
+            long long l, r, k, temp = 0;
             cin >> l >> r >> k;
             if(l > 1)
-            {
-                long long temp = sum - (pref[r - 1] - pref[l - 2]) + (k * (r - l + 1));
-                cout << (temp & 1 ? "YES" : "NO") << endl;
-            }
+                temp = sum - (pref[r - 1] - pref[l - 2]) + (k * (r - l + 1));
             else
-            {
-                long long temp  = sum - pref[r - 1] + (k * (r - l + 1));
-                cout << (temp & 1 ? "YES" : "NO") << endl;
-            }
+                temp  = sum - pref[r - 1] + (k * (r - l + 1));
+            cout << (temp & 1 ? "YES" : "NO") << endl;
         }
     }
     return 0;
