@@ -1,2 +1,3 @@
 *.bin
 *.prob
+dir_to_ignore/.cph
