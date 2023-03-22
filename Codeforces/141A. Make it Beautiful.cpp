@@ -1,4 +1,4 @@
-/**
+/**             ॐ 
  *      author : rhsajal_017
 **/
 
@@ -48,9 +48,7 @@ int main()
         for(int i = 1; i <= n; i++)
         {
             for(int j = 1; j <= n; j++)
-            {
                 cout << ans[i][j] << " ";
-            }
             cout << "\n";
         }
     }
