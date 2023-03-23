@@ -18,16 +18,15 @@ signed main()
         int l, r, x, a, b;
         cin >> l >> r >> x >> a >> b;
         if(a == b)
-        {
             cout << "0\n";
-            continue;
-        }
-        if(abs(a - b) >= x)
-        {
+        else if(abs(a - b) >= x)
             cout << "1\n";
-            continue;
-        }
-        
+        else if(r - max(a , b) >= x || min(a , b) - l >= x)
+            cout <<"2\n";
+        else if(((r - b) >= x && (a - l) >= x) || ((r - a) >= x && (b - l) >= x))
+            cout << "3\n";
+        else
+            cout << "-1\n";
     }
     return 0;
 }
