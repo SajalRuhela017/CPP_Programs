@@ -15,18 +15,27 @@ signed main()
     cin >> t;
     while(t--)
     {
-        int n, k, mn = -1000;
+        int n, k, pos = 0;
         cin >> n >> k;
-        vector<int> ans(n , mn);
-        int left = -1 * n;
-        for(int i = 0; i + 1 < n && k > 0; i++)
+        vector<int> ans;
+        for(int i = 1; i <= n; i++)
         {
-            ans[i] = min(n - i - 1 , k);
-            left += ans[i];
-            k -= ans[i];
+            if(pos + i <= k)
+            {
+                pos += i;
+                ans.push_back(2);
+            }
+            else if(pos < k)
+            {
+                int left = k - pos;
+                pos = INT_MAX;
+                int neg = i - 1 - left;
+                ans.push_back(-2 * neg - 1);
+            }
+            else
+                ans.push_back(-60);
         }
-        ans[n - 1] = -1 * left;
-        for(auto &i : ans)
+        for(auto &i: ans)
             cout << i << " ";
         cout << "\n";
     }
