@@ -15,11 +15,10 @@ signed main()
     cin >> t;
     while(t--)
     {
-        int n;
+        int n, ans = -1, i = 1;
         cin >> n;
-        vector<int> v(n);
-        for(int i = 0; i < n; i++)
-            cin >> v[i];
+        int x = sqrtl(n - 1);
+        cout << x << "\n";
     }
     return 0;
 }

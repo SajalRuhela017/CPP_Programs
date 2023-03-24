@@ -15,11 +15,24 @@ signed main()
     cin >> t;
     while(t--)
     {
-        int n;
-        cin >> n;
-        vector<int> v(n);
-        for(int i = 0; i < n; i++)
-            cin >> v[i];
+        string s;
+        cin >> s;
+        set<char> st;
+        for(int i = 0; i < 4; i++)
+            st.insert(s[i]);
+        int n = st.size();
+        if(n >= 3)
+            cout << "4\n";
+        else if(n == 2)
+        {
+            sort(s.begin() , s.end());
+            if(s[0] == s[1] && s[2] == s[3])
+                cout << "4\n";
+            else
+                cout << "6\n";
+        }
+        else
+            cout << "-1\n";
     }
     return 0;
 }
