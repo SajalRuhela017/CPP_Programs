@@ -17,36 +17,35 @@ signed main()
     {
         string s;
         cin >> s;
-        map<char , vector<int>> m;
-        int n = s.length(), q = 0;
-        for(int i = 1; i < n - 1; i++)
-            m[s[i]].push_back(i + 1);
+        map<char , vector<int>> mp;
+        int n = s.size();
+        for(int i = 0; i < s.size(); i++)
+            mp[s[i]].push_back(i + 1);
         if(s[0] < s[n - 1])
         {
+            int visited = 0;
             for(char i = s[0]; i <= s[n - 1]; i++)
-                q += m[i].size();
-            cout << s[n - 1] - s[0] << " " << q + 2 << "\n";
-            cout << 1 << " ";
+                visited += mp[i].size();
+            cout << s[n  - 1] - s[0] << " " << visited << "\n";
             for(char i = s[0]; i <= s[n - 1]; i++)
             {
-                for(int j : m[i])
+                for(auto &j: mp[i])
                     cout << j << " ";
             }
-            cout << n << "\n";
         }
         else
         {
-            for(char i = s[0]; i >= s[n - 1]; i--)
-                q += m[i].size();
-            cout << s[0] - s[n - 1] << " " << q + 2 << "\n";
-            cout << 1 << " ";
-            for(char i = s[0]; i >= s[n - 1]; i--)
+            int visited = 0;
+            for(char i= s[0]; i >= s[n - 1]; i--)
+                visited += mp[i].size();
+            cout << s[0] - s[n - 1] << " " << visited << "\n";
+            for(char i= s[0]; i >= s[n - 1]; i--)
             {
-                for(int j : m[i])
+                for(auto &j: mp[i])
                     cout << j << " ";
             }
-            cout << n << "\n";
         }
+        cout << "\n";
     }
     return 0;
 }
