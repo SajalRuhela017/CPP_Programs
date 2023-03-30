@@ -1,4 +1,4 @@
-//Here w will print square using #
+//Here we will print square using #
 
 #include<iostream>
 

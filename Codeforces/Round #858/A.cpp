@@ -20,8 +20,8 @@ int main()
             cout << "-1\n";
         else if(a + d - b < c)
             cout << "-1\n";
-        else    
-            cout << 2 * d + a - 2 * b - c << "\n";
+        else
+            cout << 2*(d - b) - (c - a) << "\n";
     }
     return 0;
 }
