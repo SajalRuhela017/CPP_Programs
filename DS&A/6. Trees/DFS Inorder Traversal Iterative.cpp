@@ -11,6 +11,12 @@ struct TreeNode
 {
     int val;
     struct TreeNode *left, *right;
+    TreeNode(int data)
+    {
+        val = data;
+        left = NULL;
+        right = NULL;
+    };    
 };
 
 vector<int> inorderTraversal(TreeNode *root)
@@ -39,14 +45,6 @@ vector<int> inorderTraversal(TreeNode *root)
     return v;
 }
 
-struct TreeNode* newNode(int data)
-{
-    struct TreeNode* node = (struct TreeNode*)malloc(sizeof(struct TreeNode));
-    node->val = data;
-    node->left = NULL;
-    node->right = NULL;
-    return node;
-};
 
 signed main()
 {

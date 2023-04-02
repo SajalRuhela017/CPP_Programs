@@ -19,8 +19,25 @@ struct TreeNode
     }
 };
 
+vector<int> levelorderTraversalII(TreeNode* root)
+{
+    vector<int> ans;
+    queue<TreeNode*> q;
+    q.push(root);
+    while(!q.empty())
+    {
+        TreeNode* temp = q.front();
+        q.pop();
+        ans.push_back(temp->val);
+        if(temp->left)
+            q.push(temp->left);
+        if(temp->right)
+            q.push(temp->right);
+    }
+    return ans;
+}
 
-vector<vector<int>> levelorderTraversal(TreeNode* root)
+vector<vector<int>> levelorderTraversalI(TreeNode* root)
 {
     vector<vector<int>> ans;
     queue<TreeNode*> q;
@@ -59,12 +76,17 @@ signed main()
     root->right->right = new TreeNode(7);
     root->right->right->left = new TreeNode(9);
     root->right->right->right = new TreeNode(10);
-    vector<vector<int>> ans = levelorderTraversal(root);
-    for(auto i: ans)
+    vector<vector<int>> ans1 = levelorderTraversalI(root);
+    for(auto i: ans1)
     {
         for(auto j: i)
             cout << j << " ";
         cout << "\n";
     }
+    cout << "\n";
+    vector<int> ans2 = levelorderTraversalII(root);
+    for(auto i: ans2)
+        cout << i << " ";
+    cout << "\n";
     return 0;
 }
