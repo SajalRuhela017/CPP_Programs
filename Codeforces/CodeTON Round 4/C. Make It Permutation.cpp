@@ -29,9 +29,7 @@ signed main()
                 v.push_back(x);
             }            
             else
-            {
                 ans += c;
-            }
         }
         sort(v.begin(), v.end());
         int correct = 0;
@@ -45,13 +43,13 @@ signed main()
             cout << "0\n";
             continue;
         }
-        for(int i = correct; i < n; i++)
+        for(int i = correct - 1; i < n - 1; i++)
         {
-            if(v[i] == v[i - 1] + 1)
+            if(v[i] == v[i + 1] + 1)
                 continue;
             else
             {
-                int insert = (v[i] - v[i - 1] - 1) * d;
+                int insert = (v[i + 1] - v[i] - 1) * d;
                 int remove = (n - 1 - i) * c;
                 if(insert <= remove)
                 {

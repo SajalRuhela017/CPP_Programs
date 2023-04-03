@@ -39,9 +39,7 @@ signed main()
             cout << "\n";
         }
         else
-        {
             cout << "-1\n";
-        }
     }
     return 0;
 }
