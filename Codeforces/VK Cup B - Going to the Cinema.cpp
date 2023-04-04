@@ -15,19 +15,20 @@ signed main()
     cin >> t;
     while(t--)
     {
-        int n, c, d, ans = 0, rm = 0;
-        cin >> n >> c >> d;
+        int n;
+        cin >> n;
         vector<int> v(n);
         for(int i = 0; i < n; i++)
             cin >> v[i];
         sort(v.begin(), v.end());
-        ans = c * n + d;
-        for (int i = 0; i < n; i++) 
+        int ans = 0;
+        for(int i = 0; i <= n; i++)
         {
-            if (i > 0 && v[i] == v[i - 1])
-                rm += 1;
-            int cur = c * (n - 1 - i + rm) + d * (v[i] - (i + 1 - rm));
-            ans = min(ans, cur);
+            if(!i || v[i - 1] < i)
+            {
+                if(i == n || v[i] > i)
+                    ans++;
+            }
         }
         cout << ans << '\n';
     }
