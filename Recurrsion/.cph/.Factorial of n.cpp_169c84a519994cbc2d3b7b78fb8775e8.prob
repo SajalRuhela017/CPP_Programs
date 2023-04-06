@@ -1,1 +1,0 @@
-{"name":"Local: Factorial of n","url":"d:\\IIIT Una\\others\\C++ Programs\\Recurrsion\\Factorial of n.cpp","tests":[{"id":1678301944894,"input":"5","output":"120"},{"id":1678301951369,"input":"7","output":"5040"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\IIIT Una\\others\\C++ Programs\\Recurrsion\\Factorial of n.cpp","group":"local","local":true}

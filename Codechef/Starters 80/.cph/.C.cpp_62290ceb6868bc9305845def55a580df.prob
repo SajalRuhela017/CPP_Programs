@@ -1,1 +1,0 @@
-{"name":"Local: C","url":"d:\\IIIT Una\\others\\C++ Programs\\Codechef\\Starters 80\\C.cpp","tests":[{"id":1679085106511,"input":"2\n5\n1 2 3 2 4\n6\n1 3 5 8 9 8","output":"7\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\IIIT Una\\others\\C++ Programs\\Codechef\\Starters 80\\C.cpp","group":"local","local":true}
