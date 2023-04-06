@@ -17,22 +17,25 @@ signed main()
     {
         int n, k;
         cin >> n >> k;
-        vector<int> v(n);
-        for(int i = 0; i < k; i++)
+        vector<int> v(n), a(n);
+        for(int i = n - k; i < n; i++)
             cin >> v[i];
-        int diff = abs(v[0]);
-        bool flag = true;
-        for(int i = 0; i < k - 1; i++)
+        if(k == 1)
         {
-            if(abs(v[i + 1] - v[i]) < diff)
-            {
-                flag = false;
-                break;
-            }
-            else
-                diff = abs(v[i + 1] - v[i]);
+            cout << "Yes\n";
+            continue;
         }
-        cout << (flag ? "Yes\n" : "No\n");
+        for(int i = n - k + 1; i < n; i++)
+            a[i] = v[i] - v[i - 1];
+        if(!is_sorted(a.begin() + n - k + 1, a.end()))
+        {
+            cout << "No\n";
+            continue;
+        }
+        if(v[n - k] > a[n - k + 1] * (n - k + 1))
+            cout << "No\n";
+        else
+            cout << "Yes\n";
     }
     return 0;
 }
