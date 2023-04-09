@@ -11,14 +11,13 @@ int main(){
 	cout<<"Enter the number upto which you want the sum of all natural numbers : ";
 	cin>>num;
 	
-		for(int i=1;i<=num;i++){
-			
-			for(int j=1;j<=i;j++){
-				
-				sum+=j;
-			}
+	for(int i=1;i<=num;i++)
+	{
+		for(int j=1;j<=i;j++)
+		{
+			sum+=j;
 		}
-		
+	}
 	cout<<sum;
 		
 return 0;
