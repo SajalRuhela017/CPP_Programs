@@ -16,11 +16,22 @@ int main()
     {
         long long n, k, d, w;
         cin >> n >> k >> d >> w;
-        vcetor<long long> v(n);
+        vector<long long> v(n);
         for(int i = 0; i < n; i++)
-        {
             cin >> v[i];
+        int when = -1, cnt = 0, ans = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if(v[i] <= when + d && cnt > 0)
+                cnt -= 1;
+            else
+            {
+                when = v[i] + w;
+                cnt = k - 1;
+                ans += 1;
+            }
         }
+        cout << ans << '\n';
     }
     return 0;
 }
