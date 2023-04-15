@@ -6,74 +6,7 @@
 using namespace std;
 #define mod 1000000007
 #define int long long
-
-vector<int> nextSmaller(vector<int> &arr)
-{
-    stack<int> s;
-    s.push(-1);
-    int n = arr.size();
-    vector<int> ans(n);
-    for(int i = n - 1; i >= 0; i--)
-    {
-        int item = arr[i];
-        while(s.top() != -1 && arr[s.top()] >= item)
-            s.pop();
-        if(s.top() == -1)
-            ans[i] = n;
-        else
-            ans[i] = s.top();
-        s.push(i);
-    }
-    return ans;
-}
-
-vector<int> prevSmaller(vector<int> &arr)
-{
-    stack<int> s;
-    s.push(-1);
-    int n = arr.size();
-    vector<int> ans(n);
-    for(int i = 0; i < n; i++)
-    {
-        int item = arr[i];
-        while(s.top() != -1 && arr[s.top()] >= item)
-            s.pop();        
-        ans[i] = s.top();
-        s.push(i);
-    }
-    return ans;
-}
-
-int largestArea(vector<int> arr)
-{
-    vector<int> prev = prevSmaller(arr), next = nextSmaller(arr);
-    int maxArea = INT_MIN;
-    for(int i=0;i<arr.size();i++)
-    {
-        int length = arr[i], breadth = next[i] - prev[i] - 1, newArea = length * breadth;
-        maxArea = max(maxArea,newArea);
-    }
-    return maxArea;
-}
-
-int maxArea(vector<vector<int>> M, int n) 
-{
-    int maxi = INT_MIN;
-    vector<int> histogram(n,0);
-    for(int i = 0; i < n; i++)
-    {
-        for(int j = 0; j < n; j++)
-        {
-            if(M[i][j] == 1)
-                histogram[j]++;
-            else
-                histogram[j] = 0;
-        }
-        maxi = max(maxi,largestArea(histogram));
-    }
-    return maxi;
-}
-
+ 
 signed main()
 {
     ios::sync_with_stdio(false);
@@ -84,19 +17,35 @@ signed main()
     {
         string s;
         cin >> s;
-        int n = s.size(), rotate = 0;
-        vector<vector<int>>v(n, vector<int>(n));
+        int n = s.length(), one = 0, zero = 0, curr = 0, mx = 0;
         for(int i = 0; i < n; i++)
+            s[i] == '1' ? one++ : zero++;
+        if(one == n)
         {
-            int k = 0;
-            for(int j = rotate; j < n; j++)
-                v[i][j] = (s[k++] - '0');
-            for(int j = 0; j < rotate; j++)
-                v[i][j] = (s[k++] - '0');
-            rotate++;
+            cout << n*n << '\n';
+            continue;
         }
-        cout << maxArea(v, n);
-        cout << '\n';
+        if(zero == n)
+        {
+            cout << 0 << '\n';
+            continue;
+        }
+        s += s;
+        curr = (s[0] == '1');
+        for(int i = 1; i < 2 * n; i++)
+        {
+            if(s[i] == '1')
+            {
+                curr++;
+                mx = max(curr, mx);
+            }
+            else
+                curr = 0;
+        }
+        int ans = 1;
+        for(int i = 1; i <= (mx + 1)/ 2; i++)
+            ans = max(ans, i * (mx - i + 1));
+        cout << ans << '\n';
     }
     return 0;
 }
