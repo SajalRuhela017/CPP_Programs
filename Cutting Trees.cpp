@@ -1,3 +1,22 @@
+//In a perticular field, there are trees in a single row from left to right. Each tree has a value V. You cut trees from left to right and for each tree of value V that you cut, you plant (V+1)%M trees on the right most end with values ranging from 0 to ((V+1)%M)-1.
+//Initially there was only one tree with value 2. Find total number of trees present after cutting K trees.
+
+//INPUT FORMAT
+//k, dnenoting number of trees to cut
+//m, denoting the modulus value
+
+//OUTPUT FORMAT
+//total number of trees present after cutting K trees
+
+//Example 1
+//INPUT: k = 1, m = 5
+//OUTPUT: 3
+
+//Example 2
+//INPUT: k = 1, m = 2
+//OUTPUT: 1
+
+
 /**            ॐ
  *      author : rhsajal_017
 **/

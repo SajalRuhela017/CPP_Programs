@@ -34,9 +34,7 @@ public:
         {
             vector<int> temp;
             for(int j = 0; j < grid.size(); j++)
-            {
                 temp.push_back(grid[j][i]);
-            }
             ans.push_back(calculateSize(temp));
         }
         return ans;
