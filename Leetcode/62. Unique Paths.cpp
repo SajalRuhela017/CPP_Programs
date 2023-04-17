@@ -4,6 +4,8 @@
 
 // The test cases are generated so that the answer will be less than or equal to 2 * 109.
 
+
+// Dynamic Programming Solution
 class Solution {
 public:
     int solve(int i, int j, int m, int n, vector<vector<int>> &dp)
@@ -21,5 +23,19 @@ public:
     {
         vector<vector<int>>dp (m, vector<int>(n, -1));
         return solve(0, 0, m, n, dp);
+    }
+};
+
+
+// Combinatrics Solution
+class Solution {
+public:    
+    int uniquePaths(int m, int n) 
+    {
+        int a = n + m - 2, b = n - 1;
+        double ans = 1;
+        for(int i = 1; i <= b; i++)
+            ans = ans * (a - b + i) / i;
+        return (int)ans;        
     }
 };
