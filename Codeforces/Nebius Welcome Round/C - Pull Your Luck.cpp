@@ -17,13 +17,20 @@ signed main()
     {
         int n, x, p;
         cin >> n >> x >> p;
-        int req1 = n - x;
-        
-        req *= -2;
-        int factor = 1 - 4 * 1 * req;
-        int r = sqrt(factor);
-        if(r * r != factor)
-
+        x = (n - x) % n;
+        bool flag = false;
+        int swing = 0;
+        for(int i = 1; i <= p && i <= 2 * n; i++)
+        {
+            swing += i;
+            swing %= n;
+            if(x == swing)
+            {
+                flag = true;
+                break;
+            }
+        }
+        cout << (flag ? "Yes" : "No") << '\n';
     }
     return 0;
 }
