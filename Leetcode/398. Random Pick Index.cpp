@@ -16,16 +16,14 @@ public:
     int pick(int target) 
     {
         int n = 0, ans = -1;
-        for(int i = 0; i < temp.size(); i++)
+        for (int i = 0; i < temp.size(); i++) 
         {
-            if(temp[i] != target)   continue;
-            if(n == 0)      n++ , ans = i;
-            else
-            {
-                n++;
-                if(rand() % n == 0) ans = i;
-            }      
+            if(temp[i] != target)
+                continue;
+            n++;
+            if(random() % n == 0)
+                ans = i;
         }
-        return ans; 
+        return ans;
     }
 };
