@@ -22,9 +22,22 @@ signed main()
             cin >> a[i];
         for(int i = 0; i < n; i++)
             cin >> b[i];
-        ans.push_back(min(a[0], b[0]));
-        for(auto &i: ans)
-            cout << i << ' ';
+        vector<int> pref(n + 1, 0);
+        for(int i= 0; i < n; i++)
+            pref[i+1] = pref[i] + b[i];
+        vector<int> count(n + 1), sum(n + 1);
+        for(int i = 0; i < n; i++)
+        {
+            int x = upper_bound(pref.begin(), pref.end(), a[i] + pref[i]) - pref.begin() - 1;
+            count[i]++;
+            count[x]--;
+            sum[x] += a[i] - pref[x] + pref[i];
+        }
+        for(int i = 0; i < n; i++)
+        {
+            cout << count[i] * b[i] + sum[i] << ' ';
+            count[i + 1] += count[i]; 
+        }
         cout << '\n';
     }
     return 0;
