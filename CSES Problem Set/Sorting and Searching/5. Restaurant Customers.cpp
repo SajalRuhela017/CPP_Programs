@@ -14,9 +14,16 @@ signed main()
     {
         int x, y;
         cin >> x >> y;
-        vp.push_back(make_pair(x, y));
+        vp.push_back(make_pair(x, 1));
+        vp.push_back(make_pair(y, 0));
     }
     sort(vp.begin(), vp.end());
-    
+    int count = 0, ans = 0;
+    for(int i = 0; i < vp.size(); i++)
+    {
+        count += (vp[i].second ? 1 : -1);
+        ans = max(ans, count);
+    }
+    cout << ans << '\n';
     return 0;
 }
