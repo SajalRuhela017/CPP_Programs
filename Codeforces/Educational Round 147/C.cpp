@@ -11,60 +11,40 @@ signed main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    int t, k = 1;
-    cin >> t;
-    while(t--)
+    int tt, k = 1;
+    cin >> tt;
+    while(tt--)
     {
         string s;
         cin >> s;
-        int n = s.size();
-        unordered_set<char> st(s.begin(), s.end());
-        priority_queue<int> pq;
-        if(st.size() == n)
+        int n = s.size(), ans = INT_MAX;
+        for(int i = 0; i < 26; i++)
         {
-            cout << (int)log2(n) << '\n';
-        }
-        else if(st.size() == 1)
-        {
-            cout << 0 << '\n';
-        }
-        else
-        {
-            int mn = INT_MAX;
-            map<char, int> mp;
-            vector<int> freq(26, 0);
-            for(int i = 0; i <= 25; i++)
+            char c = 'a' + i;
+            int size = 0, mx = 0;
+            for(int j = 0; j < n; j++)
             {
-                int a = 0, b = 0;
-                while(a < n)
+                if(s[j] == c)
+                    size = 0;
+                else
                 {
-                    while(a < n && s[a] == i + 'a')
-                        a++;
-                    freq[i] = a;
-                    int c = a;
-                    while(c < n && s[c] != i + 'a')
-                        c++;
-                    freq[i] = max(freq[i], c);
-                    b = max(b, c - a);
-                    a = c;
+                    size++;
+                    mx = max(size, mx);
                 }
-                mn = min(mn, b);
-                freq[i] = min(mn, freq[i]);
-                freq[i]--;
             }
-            if(!mn)
+            if(mx == 0)
             {
-                cout << mn << '\n';
-                continue;
+                cout << 0 << '\n';
+                goto NEXT;
             }
-            int x = ceil(log2(mn));
-            if(!(mn & (mn - 1)))
-                cout << x + 1 << '\n';
-            else
-                cout << x << '\n';
-                
-            
+            if(mx != n)
+            {
+                int temp = log2(mx) + 1;
+                ans = min(ans, temp);
+            }
         }
+        cout << ans << '\n';
+        NEXT:;
     }
     return 0;
 }
