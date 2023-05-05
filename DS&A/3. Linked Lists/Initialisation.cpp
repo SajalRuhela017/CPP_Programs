@@ -6,59 +6,47 @@
 using namespace std;
 #define mod 1000000007
 #define int long long
-
-struct Node {
-    int data;
-    Node *next;
+ 
+class Node {
+    public:
+        int data;
+        Node* next;
+    
+    Node(int val)
+    {
+        this->data = val;
+        this->next = NULL;
+    }
 };
 
-void addToList(int n, Node *head)
+void insertLL(Node* &temp, int x)
 {
-    Node *current = head;
-    int x;
-    cin >> x;
-    current->data = x;
-    head->next = current;
-    head = current;
-    for(int i = 1; i < n; i++)
-    {
-        Node *temp = new Node;
-        cin >> x;
-        temp->data = x;
-        current->next = temp;
-        current = temp;
-    }
+    Node *first = new Node(x);
+    temp->next = first;
+    temp = temp->next;
 }
 
-void printValuesInList(Node *head)
+void print(Node* head)
 {
-    while(head)
+    while(head->next)
     {
         cout << head->data << ' ';
         head = head->next;
     }
-    cout << '\n';
 }
 
 signed main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    Node *head = new Node;
-    head->next = NULL;
-    int n;
-    cin >> n;
-
-    //adding to the list
-    addToList(n, head);
-
-    //printing the list
-    printValuesInList(head);
-
-    //deleting elements in tehe list
-    deleteElements(n, head);
-
-    cout << "\nProgram Completed" << '\n';
-
+    Node* head = new Node(1);
+    Node* temp = head;
+    for(int i = 1; i <= 5; i++)
+    {
+        int x;
+        cin >> x;
+        insertLL(temp, x);
+    }
+    print(head);
     return 0;
 }
