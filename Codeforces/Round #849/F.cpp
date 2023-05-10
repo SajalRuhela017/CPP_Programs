@@ -1,53 +1,69 @@
-/**
+/**            ॐ
  *      author : rhsajal_017
 **/
 
 #include <bits/stdc++.h>
 using namespace std;
 #define mod 1000000007
- 
-int main()
+#define int long long
+
+int digitSum(int n)
+{
+    int sum = 0;
+    while(n)
+    {
+        sum += n % 10;
+        n /= 10;
+    }
+    return sum;
+}
+
+signed main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    int t, k = 1;
-    cin >> t;
-    while(t--)
+    int tt, k = 1;
+    cin >> tt;
+    while(tt--)
     {
-        long long n, q;
+        int n, q;
         cin >> n >> q;
-        vector<long long> v(n), pref(n);
-        cin >> v[0];
-        pref[0] = v[0];
-        for(int i = 1; i < n; i++)
+        vector<int> v(n);
+        set<int> s;
+        for(int i = 0; i < n; i++)
         {
             cin >> v[i];
-            pref[i] = pref[i - 1] + v[i];
+            if(v[i] > 9)
+                s.insert(i);
         }
         while(q--)
         {
-            int m;
-            cin >> m;
-            if(m == 1)
+            int type;
+            cin >> type;
+            if(type == 1)
             {
-                int l, r;
+                int l, r, ind = 0;
                 cin >> l >> r;
-                for(int i = l - 1; i < r; i++)
+                l-- , r--;
+                ind = l;
+                while(!s.empty())
                 {
-                    int dig = v[i], sum = 0;
-                    while(dig)
-                    {
-                        sum += dig % 10;
-                        dig /= 10;
-                    }
-                    v[i] = sum;
+                    auto it = s.lower_bound(ind);
+                    if(*it > r || it == s.end())
+                        break;
+                    v[*it] = digitSum(v[*it]);
+                    int temp = *it;
+                    s.erase(*it);
+                    if(v[temp] > 9)
+                        s.insert(temp);
+                    ind = temp + 1;
                 }
             }
             else
             {
                 int x;
                 cin >> x;
-                cout << v[x - 1] << endl;
+                cout << v[x - 1] << '\n';
             }
         }
     }
