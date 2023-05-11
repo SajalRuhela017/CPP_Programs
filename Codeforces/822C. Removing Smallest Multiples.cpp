@@ -15,21 +15,25 @@ signed main()
     cin >> tt;
     while(tt--)
     {
-        int n;
+        int n, cost = 0;
         cin >> n;
         string s;
         cin >> s;
-        int cost = 0;
+        vector<bool> notVisited(n, true);
         for(int i = 1; i <= n; i++)
         {
-            int j = i, x = 1;
-            while(s[j] == '0' && vis[])
+            for(int j = i - 1; j < n; j += i)
             {
-                j = i * x;
-                x++;
-                cost += i;
+                if(s[j] == '1')
+                    break;
+                if(notVisited[j])
+                {
+                    notVisited[j] = false;
+                    cost += i;
+                }                
             }
         }
+        cout << cost << '\n';
     }
     return 0;
 }
