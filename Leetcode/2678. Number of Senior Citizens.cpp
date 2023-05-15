@@ -6,3 +6,18 @@
 // The last two characters determine the seat allotted to that person.
 // Return the number of passengers who are strictly more than 60 years old.
 
+class Solution {
+public:
+    int countSeniors(vector<string>& details)
+    {
+        int count = 0;
+        for(int i = 0; i < details.size(); i++)
+        {
+            if(details[i][11] > '6')
+                count++;
+            else if(details[i][11] == '6' && details[i][12] >= '1')
+                count++;
+        }
+        return count;
+    }
+};
