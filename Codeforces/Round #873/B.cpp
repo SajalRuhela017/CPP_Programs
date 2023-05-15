@@ -15,12 +15,15 @@ signed main()
     cin >> tt;
     while(tt--)
     {
-        int n;
+        int n, ans = 0;
         cin >> n;
-        vector<int> v(n);
-        for(int i = 0; i < n; i++)
-            cin >> v[i];
-        
+        for(int i = 1; i <= n; i++)
+        {
+            int x;
+            cin >> x;
+            ans = __gcd(ans, abs(x - i));
+        }
+        cout << ans << '\n';
     }
     return 0;
 }

@@ -15,12 +15,18 @@ signed main()
     cin >> tt;
     while(tt--)
     {
-        int n;
+        int n, sum = 0;
         cin >> n;
-        vector<int> v(n);
-        for(int i = 0; i < n; i++)
-            cin >> v[i];
-        
+        vector<int> ans(n);
+        for(int i = 1; i < n; i++)
+        {
+            ans[i] = i + 1;
+            sum += (i + 1);
+        }
+        ans[0] = n - sum % n;
+        for(auto i: ans)
+            cout << i << ' ';
+        cout << '\n';
     }
     return 0;
 }
