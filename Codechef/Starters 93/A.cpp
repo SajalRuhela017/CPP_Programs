@@ -15,15 +15,12 @@ signed main()
     cin >> tt;
     while(tt--)
     {
-        int n;
-        cin >> n;
-        vector<int> v(n);
-        for(int i = 0; i < n; i++)
-        {
-            cin >> v[i];
-            cout << n - v[i] + 1 << ' ';
-        }
-        cout << '\n';
+        int n, m;
+        cin >> n >> m;
+        if(abs(n - m) % 2)
+            cout << "NO" << '\n';
+        else
+            cout << "YES" << '\n';
     }
     return 0;
 }

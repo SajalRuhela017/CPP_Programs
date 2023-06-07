@@ -17,13 +17,9 @@ signed main()
     {
         int n;
         cin >> n;
-        vector<int> v(n);
-        for(int i = 0; i < n; i++)
-        {
-            cin >> v[i];
-            cout << n - v[i] + 1 << ' ';
-        }
-        cout << '\n';
+        string s;
+        cin >> s;
+        
     }
     return 0;
 }

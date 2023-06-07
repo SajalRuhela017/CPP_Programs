@@ -50,5 +50,6 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "xtree": "cpp"
-    }
+    },
+    "cph.general.onceMaintainerMessage": false
 }

@@ -18,12 +18,17 @@ signed main()
         int n;
         cin >> n;
         vector<int> v(n);
+        map<int, int> mp;
         for(int i = 0; i < n; i++)
         {
             cin >> v[i];
-            cout << n - v[i] + 1 << ' ';
+            mp[v[i]]++;
         }
-        cout << '\n';
+        sort(v.begin(), v.end());
+        if(v[0] < 0)
+            cout << v[0] << '\n';
+        else
+            cout << v[n - 1] << '\n';
     }
     return 0;
 }
