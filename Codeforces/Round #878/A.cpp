@@ -17,9 +17,15 @@ signed main()
     {
         int n;
         cin >> n;
-        string s;
+        string s, ans = "";
         cin >> s;
-        
+        for(int i = 0; i < n; i++)
+        {
+            ans += s[i++];
+            while(s[i] != ans.back() && i < n)
+                i++;
+        }
+        cout << ans << '\n';
     }
     return 0;
 }
