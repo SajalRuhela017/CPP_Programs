@@ -15,9 +15,10 @@ signed main()
     cin >> tt;
     while(tt--)
     {
-        int n, k;
-        cin >> n >> k;
-        if(k >= )
+        int bread, cheese, ham;
+        cin >> bread >> cheese >> ham;
+        cheese += ham;
+        cout << min(bread, cheese + 1) + min(bread - 1, cheese) << '\n';
     }
     return 0;
 }
