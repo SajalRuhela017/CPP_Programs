@@ -15,28 +15,25 @@ signed main()
     cin >> tt;
     while(tt--)
     {
-        int n;
-        cin >> n;
-        vector<int> v(n);
-        for(int i = 0; i < n; i++)
-            cin >> v[i];
-        if(v[0] != n)
+        string a, b;
+        cin >> a >> b;
+        int n = a.size();
+        if(a == b)
+        {
+            cout << "YES" << '\n';
+            continue;
+        }
+        if(a[0] != b[0] || a[n - 1] != b[n - 1])
         {
             cout << "NO" << '\n';
             continue;
         }
-        vector<int> b;
-        for(int i = n - 1; i >= 0; i--)
+        bool flag = false;
+        for(int i = 0; i < n - 1; i++)
         {
-            while(b.size() < v[i])
-                b.push_back(i + 1);
-        }
-        bool flag = true;
-        for(int i = 0; i < n; i++)
-        {
-            if(v[i] != b[i])
+            if(a[i] == '0' && a[i + 1] == '1' && b[i] == '0' && b[i + 1] == '1')
             {
-                flag = false;
+                flag = true;
                 break;
             }
         }

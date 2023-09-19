@@ -20,27 +20,24 @@ signed main()
         vector<int> v(n);
         for(int i = 0; i < n; i++)
             cin >> v[i];
-        if(v[0] != n)
+        if(v[n - 1] < v[n - 2])
+            cout << -1 << '\n';
+        else
         {
-            cout << "NO" << '\n';
-            continue;
-        }
-        vector<int> b;
-        for(int i = n - 1; i >= 0; i--)
-        {
-            while(b.size() < v[i])
-                b.push_back(i + 1);
-        }
-        bool flag = true;
-        for(int i = 0; i < n; i++)
-        {
-            if(v[i] != b[i])
+            if(v.back() < 0)
             {
-                flag = false;
-                break;
+                if(is_sorted(v.begin(), v.end()))
+                    cout << 0 << '\n';
+                else
+                    cout << -1 << '\n';
+            }
+            else
+            {
+                cout << n - 2 << '\n';
+                for(int i = 1; i < n - 1; i++)
+                    cout << i << ' ' << n - 1 << ' ' << n << '\n';
             }
         }
-        cout << (flag ? "YES" : "NO") << '\n';
     }
     return 0;
 }

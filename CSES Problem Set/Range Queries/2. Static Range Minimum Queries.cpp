@@ -11,18 +11,19 @@ signed main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    int n, ans = 0, mx = 0;
-    cin >> n;
+    int n, q;
+    cin >> n >> q;
     vector<int> v(n);
-    map<int, int> mp;
-    for(int i = 0, j = 0; i < n; i++)
+    for(int i = 0; i < n; i++)
     {
         cin >> v[i];
-        mp[v[i]]++;
-        while(mp[v[i]] > 1)
-            mp[v[j++]]--;
-        ans = max(ans, i - j + 1);
+        
     }
-    cout << ans << '\n';
+    for(int i = 0; i < q; i++)
+    {
+        int a, b;
+        cin >> a >> b;
+
+    }
     return 0;
 }
